@@ -1,19 +1,28 @@
 {
-  "name": "scratch-project",
+  "name": "webrockets",
   "version": "1.0.0",
-  "description": "A Place to Scratch Our Ideas",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production nodemon server/server.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "cross-env NODE_ENV=development concurrently \"webpack-dev-server --open\"  \"nodemon server/server.js\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/exquizzle/Scratch-Project.git"
-  },
-  "author": "Cynthia, Hamoud, Kevin, Nak, Zi",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/exquizzle/Scratch-Project/issues"
-  },
-  "homepage": "https://github.com/exquizzle/Scratch-Project#readme"
+  "dependencies": {
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.6.0",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "socket.io": "^2.3.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "websocket": "^1.0.31"
+  }
 }
