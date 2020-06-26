@@ -1,0 +1,19 @@
+{
+  "name": "scratch-project",
+  "version": "1.0.0",
+  "description": "A Place to Scratch Our Ideas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exquizzle/Scratch-Project.git"
+  },
+  "author": "Cynthia, Hamoud, Kevin, Nak, Zi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/exquizzle/Scratch-Project/issues"
+  },
+  "homepage": "https://github.com/exquizzle/Scratch-Project#readme"
+}
