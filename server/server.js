@@ -14,6 +14,10 @@ mongoose.connection.once('open', () => {
 });
 // --------- database connection ------
 
+// --------- Schema imports -----------
+// --------- import to Controllers
+// --------- Schema imports -----------
+
 app.use('/asset', express.static(path.join(__dirname, '../client/asset')));
 
 app.get('/', (req, res) => {

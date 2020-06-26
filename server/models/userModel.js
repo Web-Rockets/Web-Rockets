@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /**
-* Hint: Why is bcrypt required here?
+* Maybe bcrypt?
 */
 const SALT_WORK_FACTOR = 10;
 const bcrypt = require('bcryptjs');
