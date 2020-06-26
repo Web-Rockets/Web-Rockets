@@ -16,7 +16,7 @@ userController.getUserId = (req, res, next) => {
     });
 };
 
-userController.createSession = (req, res, next) => {
+userController.createCanvas = (req, res, next) => {
   const { userId } = res.locals;
   // const userId = res.locals.userId;  // equivalent to above
   let canvasData = {};
