@@ -17,7 +17,8 @@ userController.getUserId = (req, res, next) => {
 };
 
 userController.createSession = (req, res, next) => {
-  const userId = res.locals.userId;
+  const { userId } = res.locals;
+  // const userId = res.locals.userId;  // equivalent to above
   let canvasData = {};
   console.log('userId is ', userId);
   User.create({ roomId: userId, canvas: canvasData }) // <- insert canvas data somehow?
@@ -30,3 +31,5 @@ userController.createSession = (req, res, next) => {
       next(err);
     });
 };
+
+module.exports = userController;
