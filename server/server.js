@@ -52,6 +52,11 @@ function newConnection(socket) {
   socket.on('down', (data) => {
     socket.broadcast.emit('down', data);
   });
+  socket.on('message', (newMessage) => {
+    console.log(newMessage)
+    socket.broadcast.emit('messageBraodcast', newMessage);
+  })
+
   // receieves mouse coordinates
   function mouseMsg(data) {
     // broadcasts data to everyone who is connected
