@@ -20,7 +20,7 @@ mongoose.connection.once('open', () => {
 
 app.use('/asset', express.static(path.join(__dirname, '../client/asset')));
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   console.log('inside the *');
   res.sendFile(path.join(__dirname, '../index.html'));
 });
