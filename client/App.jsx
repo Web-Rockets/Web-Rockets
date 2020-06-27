@@ -12,6 +12,7 @@ class App extends Component {
       logStatus: false
     }
     this.onLogged = this.onLogged.bind(this);
+    this.onSignUp = this.onSignUp.bind(this);
   }
 
   onLogged(username, password) {
@@ -33,6 +34,26 @@ class App extends Component {
     .catch(err => console.log('err onLogged:', err))
   }
 
+  onSignUp(username, password) {
+    console.log('onSignUp invoked')
+    console.log(username, password)
+    fetch('/signup', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ username, password })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log('onSignUp data:', data);
+      this.setState({
+        ... this.state,
+        logStatus: data.logStatus
+      })
+    })
+    .catch(err => console.log('err onLogged:', err))
+  }
+
+
 
   render() {
     let renderCanvas;
@@ -42,8 +63,8 @@ class App extends Component {
     let renderLogin;
     if (!this.state.logStatus) {
       renderLogin = <Route path="/login" render={(routeProps) => (
-        <Login onLogged={ this.onLogged }/>
-      )}/>
+        <Login onSignUp={this.onSignUp}  onLogged={ this.onLogged }/>
+      )} />
     }
     return (
       <Router>

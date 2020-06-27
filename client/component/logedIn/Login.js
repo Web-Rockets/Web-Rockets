@@ -8,9 +8,15 @@ class Login extends Component {
   componentDidMount() {
     const username = document.getElementById('username');
     const password = document.getElementById('password');
-    const button = document.getElementById('button');
-    button.onclick = () => {
+    const loginButton = document.getElementById('login');
+    loginButton.onclick = () => {
       this.props.onLogged(username.value, password.value);
+      username.value = '';
+      password.value = '';
+    }
+    const signupButton = document.getElementById('signup');
+    signupButton.onclick = () => {
+      this.props.onSignUp(username.value, password.value);
       username.value = '';
       password.value = '';
     }
@@ -21,10 +27,12 @@ class Login extends Component {
       <div className='form'>
         {/* <form> */}
           <input name="username" type="text" placeholder="username" id="username"></input>
-          <input name="password" type="password" id="password"></input>
-          <input type='button' value='Log In' id="button"/>  
+          <input name="password" type="password" placeholder="password" id="password"></input>
+          <input type='button' value='Log In' id="login"/>  
         {/* </form> */}
-        <a href='./signup'>Sign up</a>
+        <input type="button" id="signup" name="signup" value="Sign up" />
+        {/* path="/login" render={(routeProps) => (
+        <Login onLogged={ this.onLogged } */}
 
       </div>
     )
