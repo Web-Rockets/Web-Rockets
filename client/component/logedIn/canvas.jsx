@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import Chat from './chat'
+import Profile from './profile'
 export default class Canvas extends Component {
   constructor(props) {
     super(props);
@@ -68,7 +69,7 @@ export default class Canvas extends Component {
     }
 
     function clearCanvas() {
-      ctx.clearRect(fromLeft, fromTop, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     const clearButton = document.getElementById('clear');
@@ -95,57 +96,63 @@ export default class Canvas extends Component {
   render() {
     return (
       <div>
-        <canvas id="canvas" style={{ backgroundColor: 'gray' }} />
-        <button
-          id="black"
-          onClick={() => {
-            this.changeColor('black');
-          }}
-        >
-          black
-        </button>
-        <button
-          id="blue"
-          onClick={() => {
-            this.changeColor('blue');
-          }}
-        >
-          blue
-        </button>
-        <button
-          id="red"
-          onClick={() => {
-            this.changeColor('red');
-          }}
-        >
-          red
-        </button>
-        <button
-          id="white"
-          onClick={() => {
-            this.changeColor('grey');
-          }}
-        >
-          eraser
-        </button>
-        <button
-          onClick={() => {
-            this.changeThickness('+');
-          }}
-        >
-          +
-        </button>
-        <button
-          onClick={() => {
-            this.changeThickness('-');
-          }}
-        >
-          -
-        </button>
-        <button id="clear">clear</button>
-        <h3>
-          {this.state.color} {this.state.thickness}
-        </h3>
+        <div>
+            <canvas id="canvas" style={{ backgroundColor: 'gray' }} />
+            <button
+              id="black"
+              onClick={() => {
+                this.changeColor('black');
+              }}
+            >
+              black
+            </button>
+            <button
+              id="blue"
+              onClick={() => {
+                this.changeColor('blue');
+              }}
+            >
+              blue
+            </button>
+            <button
+              id="red"
+              onClick={() => {
+                this.changeColor('red');
+              }}
+            >
+              red
+            </button>
+            <button
+              id="white"
+              onClick={() => {
+                this.changeColor('grey');
+              }}
+            >
+              eraser
+            </button>
+            <button
+              onClick={() => {
+                this.changeThickness('+');
+              }}
+            >
+              +
+            </button>
+            <button
+              onClick={() => {
+                this.changeThickness('-');
+              }}
+            >
+              -
+            </button>
+            <button id="clear">clear</button>
+            
+          </div>
+        <div>
+          <Chat/>
+        </div>
+        <div>
+        <Profile/>
+        </div>
       </div>
     );
   }

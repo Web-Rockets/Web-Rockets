@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Login from './component/logedIn/Login';
 import Canvas from './component/logedIn/canvas.jsx';
 import Home from './component/logedIn/home'
-
 class App extends Component {
   render() {
     return (
@@ -15,7 +14,7 @@ class App extends Component {
           <Switch>
             <Route path="/login"  component={Login}/>
             <Route path="/canvas"  component={Canvas}/>
-            <Route path="/home"  component={Home}/>
+            <Route path="/"  component={Home}/>
           </Switch>
         </div>
     </Router>
