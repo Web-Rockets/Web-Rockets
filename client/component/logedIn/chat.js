@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import WebSocket from 'websocket'
+import '../../Style.css'
 export default class Chat extends Component {
     constructor() {
       super()
@@ -46,7 +47,7 @@ export default class Chat extends Component {
     for(let i =0 ; i < this.state.messages.length; i++ ) {
       const message = this.state.messages[i]
         messages.push(
-            <div className='indivMessage' key={i}>
+            <div  key={i}>
              name:{message.name} <br/>
              {message.message}
             </div>
@@ -54,12 +55,13 @@ export default class Chat extends Component {
         }
         // this.setState({messages: incomingMessages})
         return (
-            <div className='chat-box' style={{height:'200px'}}>
-                <div overflow-y='scroll' height='300px' width='300px'>
+            <div  style={{height:'200px'}}>
+                <div className='chat'>
+                    <div className='indivMessage'>
                     {messages}
+                    </div>
                 </div>
               <div>
-                  
               <input type="text" id="name" placeholder="name"/><br/>
                   {/* <label for="message">Message:</label>
                   <input type="text" id="message" name="message"/> */}

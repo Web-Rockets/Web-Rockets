@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Chat from './chat'
 import Profile from './profile'
+import '../../Style.css'
+
+
 export default class Canvas extends Component {
   constructor(props) {
     super(props);
@@ -95,9 +98,10 @@ export default class Canvas extends Component {
 
   render() {
     return (
-      <div>
+      <div className='canvas-page'>
         <div>
             <canvas id="canvas" style={{ backgroundColor: 'gray' }} />
+            <div className='button-div'>
             <button
               id="black"
               onClick={() => {
@@ -145,13 +149,10 @@ export default class Canvas extends Component {
               -
             </button>
             <button id="clear">clear</button>
-            
+            </div>
           </div>
-        <div>
-          <Chat/>
-        </div>
-        <div>
-        <Profile/>
+        <div >
+          <Chat className='chat-box'/>
         </div>
       </div>
     );

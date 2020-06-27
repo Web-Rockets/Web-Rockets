@@ -114,4 +114,137 @@
 .form-group{
   margin-top: 5px;
 } */
+body{
+  background-color: #D1D1D1;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  /* background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.bit.ai%2Fdigital-whiteboard-software%2F&psig=AOvVaw0y9zcQaM-N75pYKUOP40R_&ust=1593364119114000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjI7KTBouoCFQAAAAAdAAAAABAD"); */
+}
+.canvas{
+  
+}
+.button{
 
+}
+
+.blue{
+
+}
+.red{
+
+}
+.white{
+
+}
+.chat{
+
+}
+.chat-box{
+height: 400px;
+}
+.indivMessage{
+
+}
+.nav-elem{
+
+}
+.login{
+
+}
+.chat-box{
+
+}
+.home{
+
+}
+
+.form{
+  margin-left: 50%;
+  padding-top: 20px;
+  padding-bottom:20px ; 
+  display: flex;
+  margin-top: 100px;
+  margin-right: 20px;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Cabin', sans-serif;
+  color:balck;
+  background-color: cadetblue;
+ border: 2px;
+border-radius: 3%;
+border-color: cadetblue;
+width: 300px;
+}
+.profile{
+  
+}
+.nav-elem {
+  list-style-type: none;
+  /* display: inline; */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: #85C7F2; */
+  background:linear-gradient(to bottom, #1748a1 5%, #e45d3b 100%);
+}
+
+.nav-elem li {
+  float: right ;
+}
+
+.nav-elem li {
+  display: block;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  
+}
+
+.nav-elem li:hover {
+  color: red
+}
+
+.login {
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background-color:#4977ce;
+	border-radius:5px;
+	border:1px solid #4e6096;
+  /* display:inline-block; */
+  margin-top: 15px;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  margin-right: 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.shoot{
+  margin-top: 2px 0 0;
+  padding-top: 0px;
+}
+.nav-li{
+  font-size: 25px;
+  padding: 16px;
+  margin-top: 10px;
+  margin-right: 20px
+}
+
+.canvas-page{
+  display:flex;
+  justify-content: space-around;
+}
+
+h1{
+  margin-left: 50%;
+}
+#stparagraph{
+  margin-left: 25%;
+  font-size: 25;
+}
