@@ -7,6 +7,18 @@ import Canvas from './component/logedIn/canvas.jsx';
 import Home from './component/logedIn/home'
 
 class App extends Component {
+  constructor(props) {
+    super(props) 
+    this.state = {
+      logStatus: false,
+    }
+    this.login = this.login.bind(this);
+  }
+
+  login() {
+    
+  }
+
   render() {
     return (
       <Router>
@@ -15,7 +27,8 @@ class App extends Component {
           <Switch>
             <Route path="/login"  component={Login}/>
             <Route path="/canvas"  component={Canvas}/>
-            <Route path="/home"  component={Home}/>
+            <Route path="/"  component={Home}/>
+
           </Switch>
         </div>
     </Router>
