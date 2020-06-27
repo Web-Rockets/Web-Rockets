@@ -13,8 +13,12 @@ module.exports = {
     proxy: {
       '/': 'http://localhost:3000',
     },
+
+    publicPath: 'http://localhost:8080/build/'
+
     // publicPath: 'http://localhost:8080/build/',
     publicPath: '/',
+
     
   },
 
