@@ -37,12 +37,14 @@ userController.createUser = (req, res, next) => {
       // say it's a duplicate user for now
       return res.status(500).send('Username has been taken!');
     }
-    // Handle duplicate username 
-    // if data is falsy 
-    console.log('data from createUser:', data);
-    return res.status(200).send('User has been created!')
-  })
-}
+    // Handle duplicate username
+    // if data is falsy
+    if (data) {
+      console.log('data from createUser:', data);
+      return res.status(200).json({ logStatus: true });
+    }
+  });
+};
 
 // verify user and log in
 userController.verifyUser = (req, res) => {
