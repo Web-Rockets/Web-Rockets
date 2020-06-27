@@ -15,7 +15,6 @@ export default class Canvas extends Component {
         console.log(data)
     }
     
-    
 
     render() {
         return (

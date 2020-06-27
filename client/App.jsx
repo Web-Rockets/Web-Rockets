@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Canvas from './component/logedIn/canvas'
-import Login from './component/logedIn/Login'
+// import Canvas from './component/logedIn/canvas'
+// import Login from './component/logedIn/Login'
 
 class App extends Component {
   render() {
