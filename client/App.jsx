@@ -34,6 +34,7 @@ class App extends Component {
     .catch(err => console.log('err onLogged:', err))
   }
 
+
   render() {
     let renderCanvas;
     if (this.state.logStatus) {
