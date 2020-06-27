@@ -26,13 +26,9 @@ app.use(express.json());
 
 app.use('/asset', express.static(path.join(__dirname, '../client/asset')));
 
-app.post('/signup', userController.createUser, (req, res) => {
-  // place holder to redirect
-  return res.redirect('/canvas');
-});
-app.post('/login', userController.verifyUser);
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
+
   console.log('inside the *');
   res.sendFile(path.join(__dirname, '../index.html'));
 });
