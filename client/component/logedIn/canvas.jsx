@@ -68,7 +68,7 @@ export default class Canvas extends Component {
     }
 
     function clearCanvas() {
-      ctx.clearRect(fromLeft, fromTop, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     const clearButton = document.getElementById('clear');

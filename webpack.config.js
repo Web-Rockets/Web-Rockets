@@ -16,20 +16,8 @@ module.exports = {
 
     publicPath: 'http://localhost:8080/build/',
 
-<<<<<<< HEAD
-    // // publicPath: 'http://localhost:8080/build/',
-    // publicPath: '/',
-
-    
-||||||| merged common ancestors
-    // publicPath: 'http://localhost:8080/build/',
-    publicPath: '/',
-
-    
-=======
     // publicPath: 'http://localhost:8080/build/',
     // publicPath: '/',
->>>>>>> 829afe3f5b9287deb31c95618ce8c42ad4e8f33a
   },
 
   plugins: [new MiniCssExtractPlugin()],
