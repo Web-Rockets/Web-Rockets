@@ -1,120 +1,152 @@
-// this is where we need to connect to socket
 import React, { Component } from 'react';
-import CanvasDraw from 'react-canvas-draw';
 
 export default class Canvas extends Component {
-    constructor(){
-        super()
-        this.state={
-            data:{}
-        }
-        this.onchange=this.onchange.bind(this)
-    }
-    onchange (e) {
-        let data =CanvasDraw.getSaveData()
-        console.log(data)
-    }
-    
+  constructor(props) {
+    super(props);
+    this.state = { color: 'black', thickness: 3 };
+  }
 
-    render() {
-        return (
-            <div >
-            <div >
-            <button
-              onClick={() => {
-                  localStorage.setItem("savedDrawing",this.saveableCanvas.getSaveData());
-                //   console.log(this.saveableCanvas.getSaveData())
-                  const data =this.saveableCanvas.getSaveData()
-                  console.log(data)
-                  this.setState({data})
-                  console.log(this.state)
-              }}
-            >
-              Save
-            </button>
-            <button
-              onClick={() => {
-                this.saveableCanvas.clear();
-              }}
-            >
-              Clear
-            </button>
-            <button
-              onClick={() => {
-                this.saveableCanvas.undo();
-              }}
-            >
-              Undo
-            </button>
-            <div>
-              <label>Width:</label>
-              <input
-                type="number"
-                value={this.state.width}
-                onChange={e =>
-                  this.setState({ width: parseInt(e.target.value, 10) })
-                }
-              />
-            </div>
-            <div>
-              <label>Height:</label>
-              <input
-                type="number"
-                value={this.state.height}
-                onChange={e =>
-                  this.setState({ height: parseInt(e.target.value, 10) })
-                }
-              />
-            </div>
-            <div>
-              <label>Brush-Radius:</label>
-              <input
-                type="number"
-                value={this.state.brushRadius}
-                onChange={e =>
-                  this.setState({ brushRadius: parseInt(e.target.value, 10) })
-                }
-              />
-            </div>
-            <div>
-              <label>Lazy-Radius:</label>
-              <input
-                type="number"
-                value={this.state.lazyRadius}
-                onChange={e =>
-                  this.setState({ lazyRadius: parseInt(e.target.value, 10) })
-                }
-              />
-            </div>
-          </div>
-          <CanvasDraw
-            ref={canvasDraw => (this.saveableCanvas = canvasDraw)}
-            brushColor={this.state.color}
-            brushRadius={this.state.brushRadius}
-            lazyRadius={this.state.lazyRadius}
-            canvasWidth={this.state.width}
-            canvasHeight={this.state.height}
-          />
-          <button
+  componentDidMount() {
+    const socket = io.connect('http://localhost:3000');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.height = window.innerHeight * 0.8;
+    canvas.width = canvas.height * 1.5;
+    const fromTop = canvas.getBoundingClientRect().top;
+    const fromLeft = canvas.getBoundingClientRect().left;
+    let painting = false;
+    function startPosition(e) {
+      painting = true;
+      draw(e);
+
+      const x = (e.clientX - fromLeft) / canvas.width;
+      const y = (e.clientY - fromTop) / canvas.height;
+
+      socket.emit('down', { down: true, x, y });
+    }
+    function finishedPosition() {
+      painting = false;
+      ctx.beginPath();
+      socket.emit('down', { down: false });
+    }
+
+    const draw = (e) => {
+      if (!painting) return;
+      ctx.lineWidth = this.state.color === 'grey' ? 20 : this.state.thickness;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = this.state.color;
+      ctx.lineTo(e.clientX - fromLeft, e.clientY - fromTop);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - fromLeft, e.clientY - fromTop);
+
+      const x = (e.clientX - fromLeft) / canvas.width;
+      const y = (e.clientY - fromTop) / canvas.height;
+
+      socket.emit('mouse', { x, y, color: this.state.color, thickness: this.state.thickness });
+    };
+    canvas.addEventListener('mousedown', startPosition);
+    canvas.addEventListener('mouseup', finishedPosition);
+    canvas.addEventListener('mousemove', draw);
+    let down = false;
+    socket.on('down', (data) => {
+      down = data.down;
+      if (!data.down) ctx.beginPath();
+      else down2(data);
+    });
+    socket.on('mouseback', down2);
+    function down2(data) {
+      if (!down) return;
+      ctx.lineWidth = data.color === 'grey' ? 20 : data.thickness;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = data.color;
+
+      ctx.lineTo(data.x * canvas.width, data.y * canvas.height);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(data.x * canvas.width, data.y * canvas.height);
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(fromLeft, fromTop, canvas.width, canvas.height);
+    }
+
+    const clearButton = document.getElementById('clear');
+    console.log(clearButton);
+    clearButton.onclick = () => {
+      clearCanvas();
+      socket.emit('clear');
+    };
+
+    socket.on('clearBack', clearCanvas);
+  }
+
+  changeColor(color) {
+    this.setState({ ...this.state, color });
+  }
+
+  changeThickness(sign) {
+    if (sign === '+' && this.state.thickness <= 20)
+      this.setState({ ...this.state, thickness: this.state.thickness + 2 });
+    if (sign === '-' && this.state.thickness > 1)
+      this.setState({ ...this.state, thickness: this.state.thickness - 2 });
+  }
+
+  render() {
+    return (
+      <div>
+        <canvas id="canvas" style={{ backgroundColor: 'gray' }} />
+        <button
+          id="black"
           onClick={() => {
-            this.loadableCanvas.loadSaveData(
-              localStorage.getItem("savedDrawing")
-            );
+            this.changeColor('black');
           }}
         >
-          Load what you saved previously into the following canvas. Either by
-          calling `loadSaveData()` on the component's reference or passing it
-          the `saveData` prop:
+          black
         </button>
-        <CanvasDraw
-          disabled
-          hideGrid
-          ref={canvasDraw => (this.loadableCanvas = canvasDraw)}
-          saveData={localStorage.getItem("savedDrawing")}
-        />
-            </div>
-        )
-    }
+        <button
+          id="blue"
+          onClick={() => {
+            this.changeColor('blue');
+          }}
+        >
+          blue
+        </button>
+        <button
+          id="red"
+          onClick={() => {
+            this.changeColor('red');
+          }}
+        >
+          red
+        </button>
+        <button
+          id="white"
+          onClick={() => {
+            this.changeColor('grey');
+          }}
+        >
+          eraser
+        </button>
+        <button
+          onClick={() => {
+            this.changeThickness('+');
+          }}
+        >
+          +
+        </button>
+        <button
+          onClick={() => {
+            this.changeThickness('-');
+          }}
+        >
+          -
+        </button>
+        <button id="clear">clear</button>
+        <h3>
+          {this.state.color} {this.state.thickness}
+        </h3>
+      </div>
+    );
+  }
 }
-
-
