@@ -15,11 +15,11 @@ const userSchema = new Schema({
 });
 
 // hashing
-userSchema.pre('save', (next) => {
-  bcrypt.hash(this.password, SALT_WORK_FACTOR, (err, hash) => {
-    this.password = hash;
-    next();
-  })
-})
+// userSchema.pre('save', (next) => {
+//   bcrypt.hash(this.password, SALT_WORK_FACTOR, (err, hash) => {
+//     this.password = hash;
+//     next();
+//   })
+// })
 
 module.exports = mongoose.model('User', userSchema);
