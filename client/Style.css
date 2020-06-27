@@ -61,7 +61,7 @@
 	top:1px;
 }
 
-/* .form{
+.form{
     display: flex;
     margin-top: 100px;
     margin-right: 20px;
@@ -74,14 +74,14 @@
   border-radius: 3%;
   border-color: cadetblue;
   width: 300px;
-} */
-/* .text {
+}
+.text {
   float: left;
 }
 .form-control{
   display: flex;
   align-items: center;
-} */
+}
 .login {
 	box-shadow: 0px 0px 0px 2px #9fb4f2;
 	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
@@ -99,16 +99,16 @@
 	text-decoration:none;
 	text-shadow:0px 1px 0px #283966;
 }
-/* .loginss{
+.loginss{
   display: flex;
   justify-content: center;
    margin-right: 10px; 
-} */
+}
 
-/* .login .tag {
+.login .tag {
   text-decoration: none;
   color:white
-} */
-/* .form-group{
+}
+.form-group{
   margin-top: 5px;
-} */
+}

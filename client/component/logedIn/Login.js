@@ -11,7 +11,7 @@ class Login extends Component {
 
   render() {
     return(
-      <div>
+      <div className='form'>
         <form method='POST' action='/signup'>
           <input name="username" type="text" placeholder="username"></input>
           <input name="password" type="password"></input>
