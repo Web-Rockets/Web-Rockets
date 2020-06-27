@@ -49,20 +49,10 @@ class App extends Component {
         <div>
           <NavBar/>
           <Switch>
-<<<<<<< HEAD
-            <Route path="/login"  component={Login}/>
-            <Route path="/canvas"  component={Canvas}/>
-            <Route path="/"  component={Home}/>
-||||||| merged common ancestors
-            <Route path="/login"  component={Login}/>
-            <Route path="/canvas"  component={Canvas}/>
-            <Route path="/home"  component={Home}/>
-=======
             {/* <Route path="/login"  component={Login} /> */}
             { renderLogin }
             {/* <Route path="/canvas"  component={Canvas}/> */}
             <Route path="/"  component={Home}/>
->>>>>>> 131b37281f22aec978f3ca9f8587ccec3a35574e
           </Switch>
         </div>
         { renderCanvas }
