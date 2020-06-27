@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 
 export default class Canvas extends Component {
-<<<<<<< HEAD:client/component/logedIn/canvas.js
-
-||||||| merged common ancestors
-    constructor () {
-        
-    }
-=======
   constructor(props) {
     super(props);
     this.state = { color: 'black', thickness: 3 };
@@ -36,7 +29,6 @@ export default class Canvas extends Component {
       ctx.beginPath();
       socket.emit('down', { down: false });
     }
->>>>>>> 829afe3f5b9287deb31c95618ce8c42ad4e8f33a:client/component/logedIn/canvas.jsx
 
     const draw = (e) => {
       if (!painting) return;
