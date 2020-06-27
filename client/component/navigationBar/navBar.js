@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,  Switch, Route, Link} from 'react-router-dom';
 import css from '../../Style.css'
-const image = '../../image.png'
+const image = '../../asset/image.png'
 export default class NavBar extends Component {
   render(){
     return(
        <nav >
-       <img src = {image}/>
+       <img src={image} />
         <ul  className= 'nav-elem'>
           <Link to={"/Login"}><li><button className='login'>Sign in</button> </li></Link>
           <Link to={"/canvas"}><li>Canvas</li></Link>
