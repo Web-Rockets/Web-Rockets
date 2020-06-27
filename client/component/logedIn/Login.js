@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import '../../Style.css'
 class Login extends Component {
   constructor(props) {
     super(props)
@@ -25,7 +25,6 @@ class Login extends Component {
           <input type='button' value='Log In' id="button"/>  
         {/* </form> */}
         <a href='./signup'>Sign up</a>
-
       </div>
     )
   }
