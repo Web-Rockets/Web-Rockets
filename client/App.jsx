@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import NavBar from './component/navigationBar/navBar.js';
 import {
   BrowserRouter as Router,
@@ -58,6 +59,7 @@ function About() {
 function Users() {
   return <h2>Canvas</h2>;
 }
+
 
 
 export default App;

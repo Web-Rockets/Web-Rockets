@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const userController = require('../server/controllers/userController')
 
 const app = express();
 const PORT = 3000;
@@ -18,12 +19,20 @@ mongoose.connection.once('open', () => {
 // --------- import to Controllers
 // --------- Schema imports -----------
 
+// parsing requests
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use('/asset', express.static(path.join(__dirname, '../client/asset')));
 
+
 app.get('*', (req, res) => {
+
   console.log('inside the *');
   res.sendFile(path.join(__dirname, '../index.html'));
 });
+
+
 
 const server = app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
