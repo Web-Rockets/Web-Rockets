@@ -59,13 +59,20 @@ class App extends Component {
     let renderCanvas;
     if (this.state.logStatus) {
       renderCanvas = <Canvas />
-    }
+    };
+
     let renderLogin;
     if (!this.state.logStatus) {
       renderLogin = <Route path="/login" render={(routeProps) => (
         <Login onSignUp={this.onSignUp}  onLogged={ this.onLogged }/>
       )} />
-    }
+    };
+
+    let renderHome;
+    if (!this.state.logStatus) {
+      renderHome = <Route path="/"  component={Home}/>
+    };
+
     return (
       <Router>
         <div>
@@ -74,7 +81,7 @@ class App extends Component {
             {/* <Route path="/login"  component={Login} /> */}
             { renderLogin }
             {/* <Route path="/canvas"  component={Canvas}/> */}
-            <Route path="/"  component={Home}/>
+            { renderHome }
           </Switch>
         </div>
         { renderCanvas }
