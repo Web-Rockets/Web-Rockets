@@ -34,24 +34,29 @@ userController.createUser = (req, res, next) => {
   User.create({ username, password }, (err, data) => {
     if (err) {
       console.log('Error at create user:', err);
-      return res.status(500).send(err);
+      // say it's a duplicate user for now
+      return res.status(500).send('Username has been taken!');
     }
-    return next();
+    // Handle duplicate username 
+    // if data is falsy 
+    console.log('data from createUser:', data);
+    return res.status(200).send('User has been created!')
   })
 }
 
 // verify user and log in
-userController.verifyUser = (req, res, next) => {
+userController.verifyUser = (req, res) => {
   const { username, password } = req.body;
+  console.log(req.body);
   User.findOne({ username, password }, (err, data) => {
     if (err) {
       console.log('Error at verify user:', err);
-      return res.status(500).json(err);
+      return res.status(500).send('Username or password is invalid!');
     }
     if (!data) {
-      return res.status(404).send('No such user exists');
+      return res.status(500).send('Username or password is invalid!');
     }
-    return next(); 
+    res.status(200).json({ logStatus: true });
   })
 }
 

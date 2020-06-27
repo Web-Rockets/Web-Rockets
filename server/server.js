@@ -8,17 +8,16 @@ const PORT = 3000;
 // --------- database connection ------
 const mongoose = require('mongoose');
 
-// mongoose.connect('mongodb+srv://exquizzle:admin@clusterzero-acjrx.mongodb.net/scratch', { useNewUrlParser: true });
-// mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-// mongoose.connection.once('open', () => {
-//   console.log('Connected to Mongo Database');
-// });
+mongoose.connect('mongodb+srv://exquizzle:admin@clusterzero-acjrx.mongodb.net/scratch', { useNewUrlParser: true });
+mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
+mongoose.connection.once('open', () => {
+  console.log('Connected to Mongo Database');
+});
 // --------- database connection ------
 
 // --------- Schema imports -----------
 // --------- import to Controllers
 // --------- Schema imports -----------
-app.use(express.json());
 
 // parsing requests
 app.use(express.urlencoded({ extended: true }));
@@ -27,9 +26,12 @@ app.use(express.json());
 app.use('/asset', express.static(path.join(__dirname, '../client/asset')));
 
 app.get('*', (req, res) => {
-  console.log('inside the *');
+  console.log('inside the catchall no matching routes');
   res.sendFile(path.join(__dirname, '../index.html'));
 });
+
+app.post('/signup', userController.createUser);
+app.post('/login', userController.verifyUser);
 
 const server = app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
