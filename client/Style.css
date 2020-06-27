@@ -1,0 +1,114 @@
+.navbar{
+    background-color: #15616D;
+}
+
+ body {
+    padding: 0; 
+    margin: 0;
+    /* background-color:#E5E6E4 ; */
+ }
+ .nav-elem {
+    list-style-type: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #847577;
+  }
+  
+  .nav-elem li {
+    float: right ;
+  }
+  
+  .nav-elem li {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 16px;
+    /* margin-top: 5px; */
+    text-decoration: none;
+    
+  }
+  
+  .nav-elem li:hover {
+    /* background-color: #111111; */
+    color: red
+  }
+
+  .nav-elem .login {
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:5px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+    padding:2px 12px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.login:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+.login:active {
+	position:relative;
+	top:1px;
+}
+
+.form{
+    display: flex;
+    margin-top: 100px;
+    margin-right: 20px;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Cabin', sans-serif;
+    color:balck;
+    background-color: cadetblue;
+   border: 2px;
+  border-radius: 3%;
+  border-color: cadetblue;
+  width: 300px;
+}
+.text {
+  float: left;
+}
+.form-control{
+  display: flex;
+  align-items: center;
+}
+.login {
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:5px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+  padding:2px 12px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.loginss{
+  display: flex;
+  justify-content: center;
+   margin-right: 10px; 
+}
+
+.login .tag {
+  text-decoration: none;
+  color:white
+}
+.form-group{
+  margin-top: 5px;
+}

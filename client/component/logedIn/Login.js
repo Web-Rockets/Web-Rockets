@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
 class Login extends Component {
-  constructor(props) {
-    super(props)
-    // this.state = {
-    //   user: username,
+  // constructor(props) {
+  //   super(props)
+  //   // this.state = {
+  //   //   user: username,
       
-    // };
-  }
+  //   // };
+  // }
 
   render() {
     return(
-      <div>
+      <div className='form'>
         <form method='POST' action='/signup'>
           <input name="username" type="text" placeholder="username"></input>
           <input name="password" type="password"></input>
@@ -19,7 +19,7 @@ class Login extends Component {
         </form>
         <a href='./signup'>Sign up</a>
       </div>
-    );
+    )
   }
 }
 
