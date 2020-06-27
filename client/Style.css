@@ -1,11 +1,13 @@
-.navbar{
+
+/* .navbar{
     background-color: #15616D;
 }
 
- body {
+  #root {
     padding: 0; 
     margin: 0;
-    /* background-color:#E5E6E4 ; */
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.bit.ai%2Fdigital-whiteboard-software%2F&psig=AOvVaw0y9zcQaM-N75pYKUOP40R_&ust=1593364119114000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjI7KTBouoCFQAAAAAdAAAAABAD");
+    background-color:#E5E6E4 ;
  }
  .nav-elem {
     list-style-type: none;
@@ -25,13 +27,13 @@
     color: black;
     text-align: center;
     padding: 16px;
-    /* margin-top: 5px; */
+    margin-top: 5px;
     text-decoration: none;
     
   }
   
   .nav-elem li:hover {
-    /* background-color: #111111; */
+    background-color: #111111;
     color: red
   }
 
@@ -111,4 +113,5 @@
 }
 .form-group{
   margin-top: 5px;
-}
+} */
+

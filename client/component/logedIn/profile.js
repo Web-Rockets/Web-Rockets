@@ -4,7 +4,10 @@ export default class Profile extends Component {
     render() {
         return (
             <div>
-                <h1>profile</h1>
+                <img/>
+                <div>
+                    Name:userName
+                </div>
             </div>
         )
     }
