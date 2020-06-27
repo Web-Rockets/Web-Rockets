@@ -44,6 +44,7 @@ class App extends Component {
       </div>
     </Router>
       )
+
   }
 }
 function Home() {
