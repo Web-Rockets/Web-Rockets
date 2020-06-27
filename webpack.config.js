@@ -16,8 +16,8 @@ module.exports = {
 
     publicPath: 'http://localhost:8080/build/'
 
-    // publicPath: 'http://localhost:8080/build/',
-    publicPath: '/',
+    // // publicPath: 'http://localhost:8080/build/',
+    // publicPath: '/',
 
     
   },
@@ -37,16 +37,16 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          MiniCssExtractPlugin.loader,
-          // Translates CSS into CommonJS
-          'css-loader',
-          // Compiles Sass to CSS
-          'sass-loader',
-        ],
-      },
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+    },
+    {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+            'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+            'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
+    } 
     ],
   },
 };

@@ -2,9 +2,7 @@
 import React, { Component } from 'react';
 
 export default class Canvas extends Component {
-    constructor () {
-        
-    }
+
 
     componentDidMount () {
         const canvas = document.getElementById('canvas');
