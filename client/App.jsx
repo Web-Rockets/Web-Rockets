@@ -57,19 +57,22 @@ class App extends Component {
 
   render() {
     let renderCanvas;
-    if (this.state.logStatus) {
+    //remove the bang in the if statement when finsihed
+    if (!this.state.logStatus) {
       renderCanvas = <Canvas />
     };
 
     let renderLogin;
-    if (!this.state.logStatus) {
+    //put a bang in the if statement when finished
+    if (this.state.logStatus) {
       renderLogin = <Route path="/login" render={(routeProps) => (
         <Login onSignUp={this.onSignUp}  onLogged={ this.onLogged }/>
       )} />
     };
 
     let renderHome;
-    if (!this.state.logStatus) {
+    //put a bang in the if statement when finsihed
+    if (this.state.logStatus) {
       renderHome = <Route path="/"  component={Home}/>
     };
 
