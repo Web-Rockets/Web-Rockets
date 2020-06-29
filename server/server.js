@@ -7,8 +7,9 @@ const PORT = 3000;
 
 // --------- database connection ------
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb+srv://exquizzle:admin@clusterzero-acjrx.mongodb.net/scratch', { useNewUrlParser: true });
+const databaseURL = "";
+// replce databaseURL with your database key/link
+mongoose.connect(databaseURL, { useNewUrlParser: true });
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', () => {
   console.log('Connected to Mongo Database');
