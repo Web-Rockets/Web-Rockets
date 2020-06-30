@@ -7,7 +7,7 @@ const PORT = 3000;
 
 // --------- database connection ------
 const mongoose = require('mongoose');
-const databaseURL = "";
+const databaseURL = "mongodb+srv://testUsername:testPassword@cluster0-rfgdc.mongodb.net/<testDB>?retryWrites=true&w=majority C";
 // replce databaseURL with your database key/link
 mongoose.connect(databaseURL, { useNewUrlParser: true });
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
@@ -61,7 +61,7 @@ function newConnection(socket) {
   // receieves mouse coordinates
   function mouseMsg(data) {
     // broadcasts data to everyone who is connected
-    console.log(data);
+    console.log('coordinates: ',data);
     socket.broadcast.emit('mouseback', data);
     // globally emit data to everyone
   }
