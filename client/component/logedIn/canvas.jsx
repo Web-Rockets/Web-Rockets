@@ -31,7 +31,6 @@ export default class Canvas extends Component {
 
       socket.emit('down', { down: true, x, y });
     }
-    
     function finishedPosition() {
       console.log("call to finished position")
       painting = false;
@@ -86,7 +85,7 @@ export default class Canvas extends Component {
       //ctx.moveTo(data.x * canvas.width, data.y * canvas.height);
       foreignPath.moveTo(data.x * canvas.width, data.y * canvas.height)
     }
-    //test edit 
+
     function clearCanvas() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       foreignPath = new Path2D();
