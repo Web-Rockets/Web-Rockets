@@ -9,15 +9,16 @@ module.exports = {
   },
 
   devServer: {
+    // Need for Docker to work with dev server
+    host: '0.0.0.0',
+    port: 8080,
     contentBase: '/',
+    headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
       '/': 'http://localhost:3000',
+      secure: false,
     },
-
     publicPath: 'http://localhost:8080/build/',
-
-    // publicPath: 'http://localhost:8080/build/',
-    // publicPath: '/',
   },
 
   plugins: [new MiniCssExtractPlugin()],
@@ -37,14 +38,14 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
-    },
-    {
+      },
+      {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
-            'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
-            'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
-        ]
-    } 
+          'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+          'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false',
+        ],
+      },
     ],
   },
 };
