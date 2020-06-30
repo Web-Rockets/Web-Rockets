@@ -61,7 +61,7 @@ describe('insert', () => {
 
     const InvalidData = {};
 
-    const userWithNoData = await users.insertOne(InvalidData);
+    //const userWithNoData = await users.insertOne(InvalidData);
 
     //we dont want this to go through
   });
