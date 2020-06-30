@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=production nodemon server/server.js",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "cross-env NODE_ENV=development concurrently \"webpack-dev-server --open\"  \"nodemon server/server.js\"",
-    "test": "jest"
+    "test": "cross-env NODE_ENV=development concurrently \"webpack-dev-server --open\"  \"nodemon server/server.js\" & jest"
   },
   "author": "",
   "license": "ISC",
@@ -36,7 +36,9 @@
     "css": "^2.2.4",
     "css-loader": "^3.6.0",
     "jest": "^26.1.0",
+    "jest-puppeteer": "^4.4.0",
     "nodemon": "^2.0.4",
+    "puppeteer": "^4.0.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
